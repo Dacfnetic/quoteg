@@ -1,4 +1,4 @@
-let frases = `¡Oh libertad, gran tesoro, porque no hay buena prisión, aunque fuese en grillos de oro! (Félix Lope De Vega)
+¡Oh libertad, gran tesoro, porque no hay buena prisión, aunque fuese en grillos de oro! (Félix Lope De Vega)
 ¿Es la libertad algo más que el derecho a vivir como se desee? Nada más. (Epicteto)
 A eso que algunos llaman libertad, otros llaman licencia. (Quintiliano)
 A pesar de las ilusiones racionalistas, e incluso marxistas, toda la historia del mundo es la historia de la libertad. (Albert Camus)
@@ -413,6 +413,16 @@ Se puede dudar de lo que se ve, pero no de las palabras de un hombre honrado. (A
 Ser honesto es aburrirse gratis. (Enrique Jardiel Poncela)
 Son de más valor la honradez y el talento que la riqueza. (John Dryden)
 Toda persona honrada prefiere perder su honor a perder : su conciencia. (Michel E. De Montaigne)
+
+
+  	
+Proverbios y frases sobre el trabajo
+Proverbios, refranes, citas célebres, dichos y frases.
+
+[volver al índice de frases]
+
+	
+
 A fin de cuentas el trabajo es todavía el mejor medio de pasar nuestra vida. (Gustave Flaubert)
 A ningún hombre debe obligársele a hacer el trabajo que puede hacer una máquina. (Henry Ford)
 A todos les encanta trabajar, excepto a los que trabajan. (Anónimo)
@@ -556,81 +566,4 @@ Trabajar, trabaja nada más qué el que no sirve para otra cosa. (Anónimo)
 Un día mi abuelo me dijo que hay dos tipos de personas: la que trabajan, y las que buscan el mérito. Me dijo que tratara de estar en el primer grupo: hay menos competencia ahí. (Indira Gandhi)
 Un hombre es digno para todo empleo la víspera del día en que es nombrado. (Maurice De Talleyrand-Périgord)
 Un hombre no es pobre por el hecho de no tener nada, sino cuando no trabaja. (Montesquieu)
-Una recesión es cuando tu vecino pierde su empleo. Una depresión es cuando tú pierdes el tuyo. Y recuperación es cuando Jimmy Carter pierde el suyo. (Ronald Reagan, Campaña electoral de 1980 contra el entonces presidente Carter)`;
-
-let spanishQuotes = [];
-const datos = frases.split('\n');
-console.log(datos);
-datos.forEach(frase => {
-    //frase = frase.replaceAll('\\','');
-    let quote = '';
-    let author = '';
-    let phrase = {};
-    let index = frase.indexOf('(');
-    quote = frase.slice(0, index).trim();
-    author = frase.slice(index);
-    phrase['frase'] = quote;
-    phrase['autor'] = author;
-    spanishQuotes.push(phrase);
-});
-let englishQuotes = [];
-const quoteContainer = document.getElementById('quote-container');
-const quote = document.getElementById('quote');
-const newEnglishQuoteButton = document.getElementById('new-english-quote');
-const newSpanishhQuoteButton = document.getElementById('new-spanish-quote');
-const newTweet = document.getElementById('twitter');
-const author = document.getElementById('author');
-const loader = document.getElementById('loader');
-
-const showLoader = () => {
-    loader.hidden = false;
-    quoteContainer.hidden = true;
-}
-const removeLoader = () => {
-    loader.hidden = true;
-    quoteContainer.hidden = false; 
-}
-
-
-// Get quotes from api
-const getEnglishQuotes = async () => {
-    const apiURL = 'https://jacintodesign.github.io/quotes-api/data/quotes.json';
-    try {
-        const response = await fetch(apiURL);
-        englishQuotes = await response.json();
-        generateRandomEnglishQuote();
-    } catch (error) {
-        console.log('A savage error appers:',error);
-        getEnglishQuotes();
-    }
-}
-const generateRandomEnglishQuote = () => {
-    showLoader();
-    let number = Math.floor(Math.random() * englishQuotes.length);
-    englishQuotes[number].text.length >= 150 ? quote.classList.add('long-quote') : quote.classList.remove('long-quote');
-    quote.innerText = englishQuotes[number].text;
-    author.innerText = englishQuotes[number].author;
-    removeLoader();
-}
-
-const Tweet = () => {
-    console.log(quote.textContent);
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${quote.textContent} - ${author.textContent}`;
-    window.open(twitterUrl, '_blank');
-}
-const generateRandomSpanishQuote = () => {
-    showLoader();
-    let number = Math.floor(Math.random() * spanishQuotes.length);
-    spanishQuotes[number].frase.length >= 150 ? quote.classList.add('long-quote') : quote.classList.remove('long-quote');
-    quote.innerText = spanishQuotes[number].frase;
-    author.innerText = spanishQuotes[number].autor;
-    removeLoader();
-};
-showLoader();
-getEnglishQuotes();
-removeLoader();
-newEnglishQuoteButton.addEventListener('click', generateRandomEnglishQuote);
-newTweet.addEventListener('click', Tweet);
-newSpanishhQuoteButton.addEventListener('click', generateRandomSpanishQuote);
-
-
+Una recesión es cuando tu vecino pierde su empleo. Una depresión es cuando tú pierdes el tuyo. Y recuperación es cuando Jimmy Carter pierde el suyo. (Ronald Reagan, Campaña electoral de 1980 contra el entonces presidente Carter)
