@@ -10,12 +10,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Script -->
-    <h1>Quotes</h1>
+    <div class="quote-container" id="quote-container">
+        <!-- Quote -->
+        <div class="quote-text">
+            <i class="fas fa-quote-left"></i>
+            <span id="quote">Lorem aliqua Lorem duis elit exercitation adipisicing culpa exercitation fugiat amet amet. Aute cupidatat adipisicing proident Lorem est veniam ad sint incididunt culpa minim. Nostrud elit in sit aliquip non. Sunt magna nostrud do exercitation reprehenderit commodo enim exercitation minim anim reprehenderit ullamco veniam voluptate. Consectetur reprehenderit consectetur cupidatat nostrud laboris laborum non labore voluptate. Voluptate anim veniam voluptate minim excepteur ut id laborum laboris do.</span>
+            <i class="fas fa-quote-right"></i>
+        </div>
+        <!-- Author -->
+        <div class="quote-author">
+            <span id="author">Lorem</span>
+        </div>
+        <!-- Buttons -->
+        <div class="buttons-container">
+            <button class="twitter-button" id="twitter" title="Tweet this!">
+                <i class="fab fa-twitter"></i>
+            </button>
+            <button id="new-spanish-quote">Nueva frase en español</button>
+            <button id="new-english-quote">New english quote</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
